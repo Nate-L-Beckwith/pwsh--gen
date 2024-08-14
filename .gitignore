@@ -17,6 +17,7 @@ conda-meta/history-*
 
 # Conda virtual environment
 .conda/
+.venv/
 
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
