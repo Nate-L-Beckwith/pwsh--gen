@@ -1,0 +1,32 @@
+# Conda environment
+.env/
+
+# Conda package cache
+.pkgs/
+
+# Conda environment YAML file
+environment.yml
+
+# Conda lock file
+environment.lock.yml
+
+# Conda auto-generated scripts
+conda-meta/history
+conda-meta/pinned
+conda-meta/history-*
+
+# Conda virtual environment
+.conda/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# PyCharm IDE files
+.idea/
+
+# Visual Studio Code IDE files
+.vscode/
+
+# Compiled Python files
+*.pyc
+__pycache__/
