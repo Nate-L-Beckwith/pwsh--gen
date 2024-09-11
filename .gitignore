@@ -27,7 +27,7 @@ conda-meta/history-*
 
 # Visual Studio Code IDE files
 .vscode/
-
+.DS_Store
 # Compiled Python files
 *.pyc
 __pycache__/
