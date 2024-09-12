@@ -1,6 +1,15 @@
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 
+function Show-Notification($text, $title) {
+    $balloon = New-Object System.Windows.Forms.NotifyIcon
+    $balloon.Icon = [System.Drawing.SystemIcons]::Information
+    $balloon.BalloonTipText = $text
+    $balloon.BalloonTipTitle = $title
+    $balloon.Visible = $true
+    $balloon.ShowBalloonTip(5000)
+}
+
 # GUI for time selection and status check
 function Show-GUI {
     $form = New-Object Windows.Forms.Form
@@ -33,6 +42,7 @@ function Show-GUI {
                 Start-Sleep -Seconds $global:extensionTime
                 Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name "ScreenSaveActive" -Value 1
             }
+            Show-Notification "Screensaver disabled for $($comboBox.SelectedItem) hours." "Pause Screensaver"
             $form.Close()
         } else {
             [Windows.Forms.MessageBox]::Show("Please select a valid time.")
@@ -47,9 +57,10 @@ function Show-GUI {
     $statusButton.Add_Click({
         $job = Get-Job | Where-Object { $_.State -eq 'Running' }
         if ($job) {
-            [Windows.Forms.MessageBox]::Show("Screensaver is currently paused. Remaining time: $([math]::Round(($global:extensionTime - (Get-Date).Subtract($job.PSBeginTime).TotalSeconds)/3600, 2)) hours")
+            $remainingTime = $global:extensionTime - (Get-Date).Subtract($job.PSBeginTime).TotalSeconds
+            Show-Notification "Remaining time: $([math]::Round($remainingTime/3600, 2)) hours" "Pause Screensaver Status"
         } else {
-            [Windows.Forms.MessageBox]::Show("Screensaver is not paused.")
+            Show-Notification "Screensaver is not paused." "Pause Screensaver Status"
         }
     })
     $form.Controls.Add($statusButton)

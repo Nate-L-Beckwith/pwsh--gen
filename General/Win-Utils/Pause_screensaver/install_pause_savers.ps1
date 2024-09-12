@@ -1,7 +1,7 @@
 # Installer script to set up shortcuts and handle execution policy for screensaver script
 
 # Define paths for the main script and the shortcuts
-$scriptPath = "pause_savers.ps1" # Main script is in the same folder
+$scriptPath = "Pause_screensavers\pause_savers.ps1" # Main script is in the same folder
 $desktopShortcutPath = [System.IO.Path]::Combine([Environment]::GetFolderPath('Desktop'), 'Pause Screensaver.lnk')
 $startMenuFolder = [System.IO.Path]::Combine($env:APPDATA, 'Microsoft\Windows\Start Menu\Programs')
 $startMenuShortcutPath = [System.IO.Path]::Combine($startMenuFolder, 'Pause Screensaver.lnk')
