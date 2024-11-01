@@ -4,7 +4,7 @@ import requests
 import certifi
 
 logging.basicConfig(
-    filename='/home/a1nbl01/lab/jira-utils/jira_users/jira_user_creation.log',
+    filename='/home/$USER/jira_user_creation.log',
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
