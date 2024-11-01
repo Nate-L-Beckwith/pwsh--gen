@@ -71,7 +71,7 @@ def create_jira_user(user):
 
 def main():
     # Path to the JSON file
-    json_file_path = '/home/a1nbl01/lab/jira-utils/jira_users/OUusers.json'
+    json_file_path = '$HOME/lab/jira-utils/jira_users/OUusers.json'
 
     # Load and format the JSON data
     users = load_and_format_json(json_file_path)
@@ -138,7 +138,7 @@ if __name__ == "__main__":
 
 # def main():
 
-#     json_file_path = '/home/a1nbl01/lab/jira-utils/jira_users/OUusers.json'
+#     json_file_path = '$HOME/lab/jira-utils/jira_users/OUusers.json'
 
 
 #     users = load_and_format_json(json_file_path)
